@@ -1,5 +1,5 @@
-# Step-by-Step WebGPU Graphics Programming (10) 
-## Create Cube with Distinct Face Color 
+# Step-by-Step WebGPU Graphics Programming (11) 
+## Animation and Camera Control 
 
 This is the source code for the 9th part of a series YouTube videos on step-by-step WebGPU graphics programming.
 
