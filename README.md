@@ -1,7 +1,7 @@
 # Step-by-Step WebGPU Graphics Programming (11) 
 ## Animation and Camera Control 
 
-This is the source code for the 9th part of a series YouTube videos on step-by-step WebGPU graphics programming.
+This is the source code for the 11th part of a series YouTube videos on step-by-step WebGPU graphics programming.
 
 This sample WebGPU app creates a square using index buffer. The output from the app is shown in the following image.
 
