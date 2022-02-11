@@ -1,5 +1,6 @@
 import { InitGPU, CreateGPUBuffer, CreateTransforms, CreateViewProjection, CreateAnimation } from './helper';
-import { Shaders } from './shaders';
+import shader from './shader.wgsl';
+import "./site.css";
 import { CubeData } from './vertex_data';
 import { vec3, mat4 } from 'gl-matrix';
 import $ from 'jquery';
@@ -16,13 +17,12 @@ const Create3DObject = async (isAnimation = true) => {
     const vertexBuffer = CreateGPUBuffer(device, cubeData.positions);
     const colorBuffer = CreateGPUBuffer(device, cubeData.colors);
  
-    const shader = Shaders();
     const pipeline = device.createRenderPipeline({
         vertex: {
             module: device.createShaderModule({                    
-                code: shader.vertex
+                code: shader
             }),
-            entryPoint: "main",
+            entryPoint: "vs_main",
             buffers:[
                 {
                     arrayStride: 12,
@@ -44,9 +44,9 @@ const Create3DObject = async (isAnimation = true) => {
         },
         fragment: {
             module: device.createShaderModule({                    
-                code: shader.fragment
+                code: shader
             }),
-            entryPoint: "main",
+            entryPoint: "fs_main",
             targets: [
                 {
                     format: gpu.format as GPUTextureFormat
@@ -102,7 +102,7 @@ const Create3DObject = async (isAnimation = true) => {
     const renderPassDescription = {
         colorAttachments: [{
             view: textureView,
-            loadValue: { r: 0.5, g: 0.5, b: 0.8, a: 1.0 }, //background color
+            loadValue: { r: 0.2, g: 0.247, b: 0.314, a: 1.0 }, //background color
             storeOp: 'store'
         }],
         depthStencilAttachment: {
@@ -136,7 +136,7 @@ const Create3DObject = async (isAnimation = true) => {
         renderPass.setVertexBuffer(1, colorBuffer);
         renderPass.setBindGroup(0, uniformBindGroup);
         renderPass.draw(numberOfVertices);
-        renderPass.endPass();
+        renderPass.end();
 
         device.queue.submit([commandEncoder.finish()]);
     }
