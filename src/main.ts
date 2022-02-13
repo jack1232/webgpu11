@@ -102,15 +102,21 @@ const Create3DObject = async (isAnimation = true) => {
     const renderPassDescription = {
         colorAttachments: [{
             view: textureView,
-            loadValue: { r: 0.2, g: 0.247, b: 0.314, a: 1.0 }, //background color
+            clearValue: { r: 0.2, g: 0.247, b: 0.314, a: 1.0 }, //background color
+            loadValue: { r: 0.2, g: 0.247, b: 0.314, a: 1.0 }, 
+            loadOp: 'clear',
             storeOp: 'store'
         }],
         depthStencilAttachment: {
             view: depthTexture.createView(),
+            depthClearValue: 1.0,
             depthLoadValue: 1.0,
             depthStoreOp: "store",
+            stencilClearValue: 0,
             stencilLoadValue: 0,
-            stencilStoreOp: "store"
+            stencilStoreOp: "store",
+            depthLoadOp: 'clear',
+            stencilLoadOp: 'clear'
         }
     };
     
