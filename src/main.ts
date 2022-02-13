@@ -144,11 +144,16 @@ const Create3DObject = async (isAnimation = true) => {
     CreateAnimation(draw, rotation, isAnimation);
 }
 
-Create3DObject();
+let is_animation = true;
+Create3DObject(is_animation);
 $('#id-radio input:radio').on('click', function(){
     let val = $('input[name="options"]:checked').val();
-    if(val === 'animation') Create3DObject(true);
-    else Create3DObject(false);
+    is_animation = val === 'animation'?true:false;
+    Create3DObject(is_animation);
+});
+
+window.addEventListener('resize', function(){
+    Create3DObject(is_animation);
 });
 
 
