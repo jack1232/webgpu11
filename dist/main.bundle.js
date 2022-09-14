@@ -22806,13 +22806,7 @@ const Create3DObject = (isAnimation = true) => __awaiter(void 0, void 0, void 0,
             view: depthTexture.createView(),
             depthClearValue: 1.0,
             depthLoadOp: 'clear',
-            //depthLoadValue: 1.0,
             depthStoreOp: "store",
-            /*stencilClearValue: 0,
-            stencilLoadValue: 0,
-            stencilStoreOp: "store",
-            depthLoadOp: 'clear',
-            stencilLoadOp: 'clear'*/
         }
     };
     function draw() {

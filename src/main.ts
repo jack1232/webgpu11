@@ -112,13 +112,7 @@ const Create3DObject = async (isAnimation = true) => {
             view: depthTexture.createView(),
             depthClearValue: 1.0,
             depthLoadOp:'clear',
-            //depthLoadValue: 1.0,
             depthStoreOp: "store",
-            /*stencilClearValue: 0,
-            stencilLoadValue: 0,
-            stencilStoreOp: "store",
-            depthLoadOp: 'clear',
-            stencilLoadOp: 'clear'*/
         }
     };
     
